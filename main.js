@@ -161,3 +161,34 @@ const inventory = [
     sold: 8,
   },
 ];
+
+// const tvTypeNames = inventory.map(( tvTypeName) => {
+//   return tvTypeName.name;
+// });
+// // console.log( tvTypeNames );
+//
+// const soldOutTvs = inventory.filter(( soldOutTv ) => {
+//   if ( soldOutTv.originalStock - soldOutTv.sold === 0 ) {
+//     return soldOutTv;
+//   }
+// });
+
+// console.log( soldOutTvs );
+
+// const ambiLightTvs = inventory.filter(( ambiLightTv ) => {
+//   if( ambiLightTv.options.ambiLight === true ) {
+//     return ambiLightTv;
+//   }
+// });
+
+// console.log( ambiLightTvs );
+
+const sortPrice = inventory.sort((a, b) => {
+  if( a.price > b.price)  {
+    return 1;
+  } else if ( a.price < b.price ) {
+    return -1;
+  } else return 0;
+});
+
+console.log( sortPrice );

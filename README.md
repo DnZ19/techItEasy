@@ -3,10 +3,10 @@
 ## Inleiding
 
 Je bent net begonnen als developer bij een bedrijf genaamd _Tech It Easy_, dat TV's verkoopt. Recentelijk hebben ze Fred
-van financieën ontslagen omdat hij telkens wel online was op Teams, maar eigenlijk dutjes deed en niets uitvoerde. Dit
+van financiën ontslagen omdat hij telkens wel online was op Teams, maar eigenlijk dutjes deed en niets uitvoerde. Dit
 betekent dat de medewerkers een financieel dashboard nodig hebben om zelf de administratie bij te houden.
 
-Omdat Fred al heel lang niets heeft uitgevoerd is het niet zo goed gesteld met de financieën. Je kunt er daarom vanuit
+Omdat Fred al heel lang niets heeft uitgevoerd is het niet zo goed gesteld met de financiën. Je kunt er daarom vanuit
 gaan dat Tech It Easy pas voorraad aanvult als alle producten zijn verkocht.
 
 ![Tech it easy](./assets/tech_it_easy.png)
