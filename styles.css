@@ -1,0 +1,34 @@
+#tv-sales   {
+    color: green;
+
+}
+
+#tv-purchases   {
+    color: blue;
+}
+
+#tv-sales-to-make   {
+    color: red;
+}
+
+#tv-brands  {
+    color: black;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background: beige;
+    border: none;
+
+}
+
+ul  {
+    list-style: none;
+    border: none;
+}
+
+li  {
+    display: inline-block;
+    text-align: center;
+    border: 1px solid black;
+}
