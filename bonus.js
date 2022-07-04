@@ -162,70 +162,57 @@ const inventory = [
     },
 ];
 
-// const newStringArray = inventory.map(( newString ) => {
-//
-//     return inventory.brand + inventory.type + "-" + inventory.name;
-//
-// });
-//
-// function newString(){
-//     return newStringArray.join("");
-// }
-//
-// console.log(newStringArray);
 
 
+const sortPrice = inventory.sort((a, b) => {
+    if( a.price > b.price)  {
+        return 1;
+    } else if ( a.price < b.price ) {
+        return -1;
+    } else return 0;
+});
 
-function brandAndType( input )    {
-    return inventory[input].brand + " " + inventory[input].type + " - " + inventory[input].name;
+function handleClickPrice()  {
+    console.log(sortPrice)
 }
 
-const tvBrandAndType = document.getElementById("brand-type");
-tvBrandAndType.textContent = brandAndType(3)
+const sortButton = document.getElementById("sort-button");
+sortButton.addEventListener("click", handleClickPrice);
 
-// console.log(brandAndType( 1 ));
+const ambiLightTvs = inventory.filter(( ambiLightTv ) => {
+  if( ambiLightTv.options.ambiLight === true ) {
+    return ambiLightTv;
+  }
+});
 
-function tvPrice( input )   {
-    const tvPriceFormat = inventory[input].price
-    return "€ " + Math.round(tvPriceFormat) + ",-";
+function handleClickAmbi()  {
+    console.log( ambiLightTvs );
 }
 
-const tvPriceSet = document.getElementById("price");
-tvPriceSet.textContent = tvPrice(3);
-
-// console.log(tvPrice(0));
-
-// function screenSizes( input )   {
-//     const screenSize = inventory[input].availableSizes
-//     for (let i = 0; i < inventory; i++) {
-//
-//     }
-// }
-// const outcome = inventory[0].availableSizes.map((screenSize) => {
-//
-//     return `Screen sizes are: ${screenSize} inches | In centimeters: ${screenSize * 2.54} cm`;
-//
-// })
-//
-// // console.log( outcome );
-//
-// const screenSizesTv = document.getElementById("tv-sizes");
-// screenSizesTv.textContent = outcome;
+const ambiButton = document.getElementById("ambi-button");
+ambiButton.addEventListener("click", handleClickAmbi);
 
 
-function availableScreenSizes ( input ){
-    let size = "";
+function soldOutTVs()   {
+    let soldOut = [];
+    for (let i = 0; i < inventory.length; i++) {
 
-    for (let i = 0; i < input.length; i++) {
-        const sizeInInch = input[i];
-        const sizeInCM = input[i] * 2.54;
-        //const stringScreenSize = `Screen sizes are: ${sizeInInch} inch | In centimeters that is: ${sizeInCM} cm`;
-        size = size + sizeInInch + ` inch | In centimeters that is: ${sizeInCM} cm \n`
+        if ( inventory[i].originalStock-inventory[i].sold === 0 )  {
+            soldOut.push(inventory[i].name) ;
 
-    }   return size;
+        }
+    } return soldOut;
 
 }
 
-const screenSizesTv = document.getElementById("tv-sizes");
-screenSizesTv.textContent = availableScreenSizes(inventory[3].availableSizes);
+
+
+function handleClickSoldOut ()  {
+    console.log(soldOutTVs());
+}
+
+const soldOutButton = document.getElementById("sold-out-button");
+soldOutButton.addEventListener("click", handleClickSoldOut);
+
+
 
