@@ -162,74 +162,72 @@ const inventory = [
     },
 ];
 
-
-
-// const soldTVArray = inventory.map(( soldTv ) => {
-//     return soldTv.sold;
+// const newStringArray = inventory.map(( newString ) => {
+//
+//     return inventory.brand + inventory.type + "-" + inventory.name;
+//
 // });
 //
-// // console.log(soldTVArray);
-//
-// let soldTvs = 0;
-// for (let i = 0; i < soldTVArray.length; i++) {
-//     soldTvs += soldTVArray[i];
+// function newString(){
+//     return newStringArray.join("");
 // }
 //
-// console.log(soldTvs);
-
-// ................ amount of soled tv's:
-
-const tvSales = (( tvSale ) =>   {
-    let outcome = 0;
-    for (let i = 0; i < tvSale.length; i++) {
-        outcome += tvSale[i].sold;
-    } return outcome;
-});
-
-const soldTvs = tvSales(inventory);
-
-console.log( soldTvs );
+// console.log(newStringArray);
 
 
-const soldTvsInfo = document.getElementById("tv-sales");
-soldTvsInfo.textContent = "Amount of sold tv's: " + soldTvs;
 
-
-// ................. amount of purchased tv's
-
-const purchasedTvs = (( purchasedTv ) => {
-
-    let outcome = 0;
-    for (let i = 0; i < purchasedTv.length; i++) {
-        outcome += purchasedTv[i].originalStock;
-    } return outcome;
-
-});
-
-const tvPurchases = purchasedTvs(inventory);
-
-console.log( tvPurchases );
-
-const purchasedTvInfo = document.getElementById("tv-purchases");
-purchasedTvInfo.textContent = "Amount of tv's purchased for stock: " + tvPurchases;
-
-
-// ..................total still to sell tv's
-
-function realInventory() {
-    return tvPurchases - soldTvs;
+function brandAndType( input )    {
+    return inventory[input].brand + " " + inventory[input].type + " - " + inventory[input].name;
 }
 
-const tvsToSell = document.getElementById("tv-sales-to-make");
-tvsToSell.textContent = "Tv's still to sell: " + realInventory();
+const tvBrandAndType = document.getElementById("brand-type");
+tvBrandAndType.textContent = brandAndType(3)
 
-// ..................
+// console.log(brandAndType( 1 ));
 
-function createBrandElement ( inventory ) {
-    const listOfTvBrands = document.getElementById("tv-brands");
-    inventory.map(( inventory ) => {
-        listOfTvBrands.innerHTML += `<li>${inventory.brand}</li>`
-    });
+function tvPrice( input )   {
+    const tvPriceFormat = inventory[input].price
+    return "€ " + Math.round(tvPriceFormat) + ",-";
 }
 
-createBrandElement( inventory );
+const tvPriceSet = document.getElementById("price");
+tvPriceSet.textContent = tvPrice(3);
+
+// console.log(tvPrice(0));
+
+// function screenSizes( input )   {
+//     const screenSize = inventory[input].availableSizes
+//     for (let i = 0; i < inventory; i++) {
+//
+//     }
+// }
+// const outcome = inventory[0].availableSizes.map((screenSize) => {
+//
+//     return `Screen sizes are: ${screenSize} inches | In centimeters: ${screenSize * 2.54} cm`;
+//
+// })
+//
+// // console.log( outcome );
+//
+// const screenSizesTv = document.getElementById("tv-sizes");
+// screenSizesTv.textContent = outcome;
+
+
+function availableScreenSizes ( input ){
+    let size = "";
+
+    for (let i = 0; i < input.length; i++) {
+        const sizeInInch = input[i];
+        const sizeInCM = input[i] * 2.54;
+        //const stringScreenSize = `Screen sizes are: ${sizeInInch} inch | In centimeters that is: ${sizeInCM} cm`;
+        size = size + sizeInInch + ` inch | In centimeters that is: ${sizeInCM} cm \n`
+
+    }   return size;
+
+}
+
+// console.log( availableScreenSizes( inventory[3].availableSizes ));
+
+const screenSizesTv = document.getElementById("tv-sizes");
+screenSizesTv.textContent = availableScreenSizes(inventory[3].availableSizes);
+
